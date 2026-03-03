@@ -20,8 +20,8 @@ fi
 ZIPNAME="${DEVICE}-$(date '+%Y%m%d-%H%M').zip"
 
 export ARCH=arm64
-export KBUILD_BUILD_USER=giyokun07
-export KBUILD_BUILD_HOST=DESKTOP-NOOK8V1
+export KBUILD_BUILD_USER=Esteh
+export KBUILD_BUILD_HOST=Tuf-FA507RM
 export PATH="/mnt/d/pt/kernel/linux-x86/clang+llvm-14.0.0-x86_64-linux-gnu-ubuntu-18.04/bin/:$PATH"
 
 if [[ $1 = "-c" || $1 = "--clean" ]]; then

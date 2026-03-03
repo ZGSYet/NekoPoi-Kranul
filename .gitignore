@@ -42,6 +42,8 @@
 Module.symvers
 modules.builtin
 
+
+
 #
 # Top-level generic files
 #
@@ -125,3 +127,7 @@ all.config
 
 # fetched Android config fragments
 kernel/configs/android-*.cfg
+out/
+/out/
+vmlinux
+*/vmlinux
