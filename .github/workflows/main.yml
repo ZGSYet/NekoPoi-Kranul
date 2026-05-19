@@ -11,7 +11,6 @@ on:
         description: "Branch yang ingin dibuild"
         required: true
         default: "test"
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,11 +18,19 @@ jobs:
     steps:
       - name: Clone Selected Repo
         run: |
-          git clone --depth=1 --branch ${{ github.event.inputs.branch }} ${{ github.event.inputs.repo }} source     
+          git clone --depth=1 --branch ${{ github.event.inputs.branch }} ${{ github.event.inputs.repo }} source
+
+      
+
+      - name: Check LLVM
+        run: |
+          clang --version
+          llvm-objdump --version
+          llvm-nm --version
+          llvm-ar --version
 
       - name: Build Kernel
         run: |
           cd source
           chmod +x build.sh
           ./build.sh
-
