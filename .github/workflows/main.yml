@@ -7,20 +7,31 @@ on:
         description: "Repository kernel"
         required: true
         default: "https://github.com/ZGSYet/NekoPoi-Kranul.git"
+
       branch:
         description: "Branch yang ingin dibuild"
         required: true
         default: "test"
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Install LLVM
+        run: |
+          sudo apt update
+          sudo apt install -y clang llvm-18 llvm-18-tools
+
+          sudo ln -sf /usr/bin/llvm-objdump-18 /usr/bin/llvm-objdump
+          sudo ln -sf /usr/bin/llvm-nm-18 /usr/bin/llvm-nm
+          sudo ln -sf /usr/bin/llvm-ar-18 /usr/bin/llvm-ar
+
       - name: Clone Selected Repo
         run: |
-          git clone --depth=1 --branch ${{ github.event.inputs.branch }} ${{ github.event.inputs.repo }} source
-
-      
+          git clone --depth=1 \
+          --branch ${{ github.event.inputs.branch }} \
+          ${{ github.event.inputs.repo }} source
 
       - name: Check LLVM
         run: |
