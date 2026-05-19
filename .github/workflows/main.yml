@@ -19,14 +19,7 @@ jobs:
     steps:
       - name: Clone Selected Repo
         run: |
-          git clone --depth=1 --branch ${{ github.event.inputs.branch }} ${{ github.event.inputs.repo }} source
-
-      - name: Check LLVM
-        run: |
-          clang --version
-          llvm-objdump --version
-          llvm-nm --version
-          llvm-ar --version
+          git clone --depth=1 --branch ${{ github.event.inputs.branch }} ${{ github.event.inputs.repo }} source     
 
       - name: Build Kernel
         run: |
