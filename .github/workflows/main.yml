@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+name: Build Kernel
 
 # Telegram Config
 TG_TOKEN="8647652050:AAG0ZKtMuE4NhlOKx8EHz4VHfgPLlguMTqw"
